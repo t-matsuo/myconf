@@ -1,0 +1,6 @@
+[submodule "vim/.vim/plugins/rainbow_csv"]
+	path = vim/.vim/plugins/rainbow_csv
+	url = https://github.com/mechatroner/rainbow_csv.git
+[submodule "vim/.vim/plugins/tcomment"]
+	path = vim/.vim/plugins/tcomment
+	url = https://github.com/tomtom/tcomment_vim.git
