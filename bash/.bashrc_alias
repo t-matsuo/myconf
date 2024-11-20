@@ -1,0 +1,15 @@
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
+alias la='ls -A'
+alias less='less -r'
+alias grep='grep --color --line-buffered'
+alias ls='ls -hF --color=tty'
+alias ll='ls -la'
+alias vi='vim'
+alias ssh='ssh -o ServerAliveInterval=20 -o ServerAliveCountMax=20'
+alias sshp='ssh -o PreferredAuthentications=password'
+alias diff='diff -urN'
+
+# for WSL
+alias wopen='/mnt/c/Windows/explorer.exe'
