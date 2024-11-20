@@ -4,3 +4,6 @@
 [submodule "vim/.vim/plugins/tcomment"]
 	path = vim/.vim/plugins/tcomment
 	url = https://github.com/tomtom/tcomment_vim.git
+[submodule "vim/.vim/plugins/vim-easy-align"]
+	path = vim/.vim/plugins/vim-easy-align
+	url = https://github.com/junegunn/vim-easy-align.git
