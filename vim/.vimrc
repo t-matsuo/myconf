@@ -154,6 +154,11 @@ autocmd FileType vim set cmdheight=2
 "アスタリスクでの検索時に次の単語に自動移動しない
 nnoremap * *N
 
+"削除でyankしない
+nnoremap x "_x
+nnoremap d "_d
+nnoremap D "_D
+
 "Ctrl-c二回で検索ハイライト解除
 nnoremap  <C-c><C-c> :<C-u>nohlsearch<cr><Esc>
 "TAB, Shift-Tabでインデント追加/削除
