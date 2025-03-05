@@ -20,7 +20,7 @@ set expandtab
 if Has_plugin('kaoriya')
     " Windowsのフォント
     "set guifont=MS_Gothic:h14:cSHIFTJIS
-    set guifont=plemolJP_Console_NF:h14:cSHIFTJIS
+    set guifont=plemolJP:h14:cSHIFTJIS
 else
     " Linuxのフォント
     set guifont=Monospace\ 12
