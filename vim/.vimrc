@@ -61,6 +61,8 @@ set statusline+=%h
 set statusline+=%w
 "ファイルエンコーディング
 set statusline+=\ [%{&fileencoding}]
+"ファイルフォーマット
+set statusline+=[%{&fileformat}]
 "ファイルタイプ
 set statusline+=[%{&filetype}]
 "カーソル下の文字コード
