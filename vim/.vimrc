@@ -230,7 +230,7 @@ augroup myautocmd
     autocmd VimEnter * hi PmenuThumb  ctermbg=Red                guibg=Red              "スクロールレバーの色
 
     "カレント行の色を設定
-    autocmd VimEnter * hi CursorLine term=underline cterm=underline ctermbg=None gui=underline guibg=NONE
+    autocmd VimEnter * hi CursorLine term=None cterm=None ctermbg=None gui=None guibg=NONE
 
     "カレント列の色を設定
     autocmd VimEnter * hi CursorColumn term=None cterm=None ctermbg=234 gui=None guibg=#171717
