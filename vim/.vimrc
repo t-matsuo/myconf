@@ -141,7 +141,11 @@ set pastetoggle=<f11>
 
 "全角文字の表示
 if exists('&ambiwidth')
-  set ambiwidth=double
+  if $TMUX != ''
+    set ambiwidth=single
+  else
+    set ambiwidth=double
+  endif
 endif
 
 "補完メニューの高さ
