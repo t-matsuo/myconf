@@ -7,3 +7,6 @@
 [submodule "vim/.vim/plugins/vim-easy-align"]
 	path = vim/.vim/plugins/vim-easy-align
 	url = https://github.com/junegunn/vim-easy-align.git
+[submodule "vim/.vim/plugins/vim-jsonpath"]
+	path = vim/.vim/plugins/vim-jsonpath
+	url = https://github.com/mogelbrod/vim-jsonpath.git
