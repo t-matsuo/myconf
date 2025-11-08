@@ -251,8 +251,8 @@ augroup myautocmd
     "autocmd BufNewFile,BufRead *.go  set tabstop=4
 
     "挿入モード時にステータスバーの色を変更
-    autocmd InsertEnter * hi StatusLine ctermbg=Blue   guifg=#6666ff "挿入モード時の色
-    autocmd InsertLeave * hi StatusLine ctermbg=White  guifg=White   "通常モード時の色
+    autocmd InsertEnter * hi StatusLine term=bold,reverse cterm=bold ctermfg=White ctermbg=Blue  guifg=#6666ff guibg=White    "挿入モード時の色
+    autocmd InsertLeave * hi StatusLine term=bold,reverse cterm=bold ctermfg=Black ctermbg=White guifg=#aaaaaa guibg=#222222 "通常モード時の色
 
     "vimスクリプトのファイルはコマンドのファイルの高さを広げる
     autocmd FileType vim set cmdheight=10
