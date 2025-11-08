@@ -255,7 +255,7 @@ augroup myautocmd
     autocmd InsertLeave * hi StatusLine term=bold,reverse cterm=bold ctermfg=Black ctermbg=White guifg=#aaaaaa guibg=#222222 "通常モード時の色
 
     "vimスクリプトのファイルはコマンドのファイルの高さを広げる
-    autocmd FileType vim set cmdheight=10
+    autocmd FileType vim set cmdheight=3
 augroup END
 
 "Windowsではない場合の設定
