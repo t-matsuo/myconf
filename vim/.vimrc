@@ -101,9 +101,9 @@ set nolist
 "タブや行列のスペース、行末を表示する場合の記号
 set listchars=tab:»˗,trail:_,eol:↲,extends:»,precedes:«,nbsp:%
 
-"カレント行/列を強調表示
-set cursorline
-set cursorcolumn
+"カーソル行/列を強調表示 (再描画が遅くなる)
+"set cursorline
+"set cursorcolumn
 
 "デフォルトは行番号を表示させない
 set nonumber

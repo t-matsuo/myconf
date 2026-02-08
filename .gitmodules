@@ -10,3 +10,9 @@
 [submodule "vim/.vim/plugins/vim-jsonpath"]
 	path = vim/.vim/plugins/vim-jsonpath
 	url = https://github.com/mogelbrod/vim-jsonpath.git
+[submodule "vim/.vim/plugins/vim-lsp"]
+	path = vim/.vim/plugins/vim-lsp
+	url = https://github.com/prabirshrestha/vim-lsp.git
+[submodule "vim/.vim/plugins/vim-lsp-settings"]
+	path = vim/.vim/plugins/vim-lsp-settings
+	url = https://github.com/mattn/vim-lsp-settings.git
