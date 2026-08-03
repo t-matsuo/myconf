@@ -96,6 +96,9 @@ set background=dark
 "シンタックス有効化
 syntax on
 
+"マウス有効化
+set mouse=a
+
 "タブや行末のスペース、行末を表示さない
 set nolist
 "タブや行列のスペース、行末を表示する場合の記号
@@ -179,6 +182,71 @@ if Has_plugin('tcomment')
     "Ctrl-\ でコメントアウト/解除
     nnoremap <C-\> :TComment<cr>
 endif
+
+"Ctr-b Ctrl-n で次のバッファ
+nnoremap <C-b><C-n> :bnext<CR>
+"Ctr-b Ctrl-p で前のバッファ
+nnoremap <C-b><C-p> :bprev<CR>
+"Ctr-b Ctrl-l バッファを選択
+nnoremap <C-b><C-l> :buffers<CR>:b<Space>
+
+"タブを常に表示 (1=2つ以上のタブがある場合, 2=常に表示)
+set showtabline=2
+"gj でタブ作成
+nnoremap gj :tabnew<CR>
+"gk でタブクローズ
+nnoremap gk :tabclose<CR>
+"gt で次のタブ (デフォルト動作)
+"gn で次のタブ (デフォルト動作)
+nnoremap gn :tabnext<CR>
+"gT で前のタブ (デフォルト動作)
+"gp で前のタブ
+nnoremap gp :tabprevious<CR>
+"gl でタブ一覧
+nnoremap gl :tabs<CR>:tabnext<Space>
+"g+数字で N番目のタブに移動
+nnoremap g1 1gt
+nnoremap g2 2gt
+nnoremap g3 3gt
+nnoremap g4 4gt
+nnoremap g5 5gt
+nnoremap g6 6gt
+nnoremap g7 7gt
+nnoremap g8 8gt
+nnoremap g9 9gt
+" タブバーにタブ番号を表示する関数
+function! MyTabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    " 現在選択されているタブかどうかでハイライトを切り替え
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+
+    " タブ番号を設定 (例: [1])
+    let s .= ' ' . (i + 1) . ':'
+
+    " タブ内のバッファ名（ファイル名）を取得して追加
+    let buflist = tabpagebuflist(i + 1)
+    let winnr = tabpagewinnr(i + 1)
+    let bufnr = buflist[winnr - 1]
+    let bufname = bufname(bufnr)
+    if bufname == ''
+      let s .= '[No Name]'
+    else
+      let s .= fnamemodify(bufname, ':t') " パスを除いたファイル名のみ
+    endif
+    let s .= ' '
+  endfor
+
+  " 残りのスペースを埋める
+  let s .= '%#TabLineFill#%T'
+  return s
+endfunction
+"作成した関数をタブバーに適用
+set tabline=%!MyTabLine()
 
 ""挿入モード---------
 "Shift-Tabでインデント削除
