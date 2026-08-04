@@ -192,28 +192,34 @@ nnoremap <C-b><C-l> :buffers<CR>:b<Space>
 
 "タブを常に表示 (1=2つ以上のタブがある場合, 2=常に表示)
 set showtabline=2
-"gj でタブ作成
-nnoremap gj :tabnew<CR>
-"gk でタブクローズ
-nnoremap gk :tabclose<CR>
+
+"Ctrl-i Ctrl-c でタブ作成
+nnoremap <C-i><c-c> :tabnew<CR>
+"Ctrl-i Ctrl-k でタブクローズ
+nnoremap <C-i><C-k> :tabclose<CR>
+
 "gt で次のタブ (デフォルト動作)
-"gn で次のタブ (デフォルト動作)
-nnoremap gn :tabnext<CR>
+"Ctrl-i Ctrl-n で次のタブ
+nnoremap <C-i><C-n> gt
+
 "gT で前のタブ (デフォルト動作)
-"gp で前のタブ
-nnoremap gp :tabprevious<CR>
-"gl でタブ一覧
-nnoremap gl :tabs<CR>:tabnext<Space>
-"g+数字で N番目のタブに移動
-nnoremap g1 1gt
-nnoremap g2 2gt
-nnoremap g3 3gt
-nnoremap g4 4gt
-nnoremap g5 5gt
-nnoremap g6 6gt
-nnoremap g7 7gt
-nnoremap g8 8gt
-nnoremap g9 9gt
+"Ctrl-i Ctrl-p で前のタブ
+nnoremap <C-i><C-p> gT
+
+"Ctrl-i Ctrl-l でタブ一覧
+nnoremap <C-i><C-l> :tabs<CR>:tabnext<Space>
+
+"Ctrl-i 数字で N番目のタブに移動
+nnoremap <C-i>1 1gt
+nnoremap <C-i>2 2gt
+nnoremap <C-i>3 3gt
+nnoremap <C-i>4 4gt
+nnoremap <C-i>5 5gt
+nnoremap <C-i>6 6gt
+nnoremap <C-i>7 7gt
+nnoremap <C-i>8 8gt
+nnoremap <C-i>9 9gt
+
 " タブバーにタブ番号を表示する関数
 function! MyTabLine()
   let s = ''
