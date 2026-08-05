@@ -224,7 +224,7 @@ nnoremap <C-b><C-p> :bprev<CR>
 nnoremap <C-b><C-l> :buffers<CR>:b<Space>
 
 "Ctrl-i Ctrl-c でタブ作成
-nnoremap <C-i><c-c> :tabnew<CR>
+nnoremap <C-i><C-c> :tabnew<CR>
 "Ctrl-i Ctrl-k でタブクローズ
 nnoremap <C-i><C-k> :tabclose<CR>
 
