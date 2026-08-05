@@ -122,7 +122,8 @@ set noautoindent
 set nosmartindent
 set nocindent
 set indentexpr=
-set paste
+" paste有効にするとinoremapが効かないので無効化
+" set paste
 
 "タブを自動でスペースに変換 (set pasteの後で実行すること)
 set expandtab
