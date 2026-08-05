@@ -158,6 +158,38 @@ set pumheight=10
 "デフォルトのコマンドモードの高さ
 autocmd FileType vim set cmdheight=2
 
+"タブバーを常に表示 (1=2つ以上のタブがある場合, 2=常に表示)
+set showtabline=2
+" タブバーにタブ番号を表示する関数
+function! MyTabLine()
+  let s = ''
+  for i in range(tabpagenr('$'))
+    " 現在選択されているタブかどうかでハイライトを切り替え
+    if i + 1 == tabpagenr()
+      let s .= '%#TabLineSel#'
+    else
+      let s .= '%#TabLine#'
+    endif
+    " タブ番号を設定 (例: [1])
+    let s .= ' ' . (i + 1) . ':'
+    " タブ内のバッファ名（ファイル名）を取得して追加
+    let buflist = tabpagebuflist(i + 1)
+    let winnr = tabpagewinnr(i + 1)
+    let bufnr = buflist[winnr - 1]
+    let bufname = bufname(bufnr)
+    if bufname == ''
+      let s .= '[No Name]'
+    else
+      let s .= fnamemodify(bufname, ':t') " パスを除いたファイル名のみ
+    endif
+    let s .= ' '
+  endfor
+  " 残りのスペースを埋める
+  let s .= '%#TabLineFill#%T'
+  return s
+endfunction
+"作成した関数をタブバーに適用
+set tabline=%!MyTabLine()
 
 "キーマップ設定----------------------------------------------------
 ""ノーマルモード------
@@ -191,9 +223,6 @@ nnoremap <C-b><C-p> :bprev<CR>
 "Ctr-b Ctrl-l バッファを選択
 nnoremap <C-b><C-l> :buffers<CR>:b<Space>
 
-"タブを常に表示 (1=2つ以上のタブがある場合, 2=常に表示)
-set showtabline=2
-
 "Ctrl-i Ctrl-c でタブ作成
 nnoremap <C-i><c-c> :tabnew<CR>
 "Ctrl-i Ctrl-k でタブクローズ
@@ -220,40 +249,6 @@ nnoremap <C-i>6 6gt
 nnoremap <C-i>7 7gt
 nnoremap <C-i>8 8gt
 nnoremap <C-i>9 9gt
-
-" タブバーにタブ番号を表示する関数
-function! MyTabLine()
-  let s = ''
-  for i in range(tabpagenr('$'))
-    " 現在選択されているタブかどうかでハイライトを切り替え
-    if i + 1 == tabpagenr()
-      let s .= '%#TabLineSel#'
-    else
-      let s .= '%#TabLine#'
-    endif
-
-    " タブ番号を設定 (例: [1])
-    let s .= ' ' . (i + 1) . ':'
-
-    " タブ内のバッファ名（ファイル名）を取得して追加
-    let buflist = tabpagebuflist(i + 1)
-    let winnr = tabpagewinnr(i + 1)
-    let bufnr = buflist[winnr - 1]
-    let bufname = bufname(bufnr)
-    if bufname == ''
-      let s .= '[No Name]'
-    else
-      let s .= fnamemodify(bufname, ':t') " パスを除いたファイル名のみ
-    endif
-    let s .= ' '
-  endfor
-
-  " 残りのスペースを埋める
-  let s .= '%#TabLineFill#%T'
-  return s
-endfunction
-"作成した関数をタブバーに適用
-set tabline=%!MyTabLine()
 
 ""挿入モード---------
 "Shift-Tabでインデント削除
