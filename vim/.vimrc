@@ -259,6 +259,23 @@ if Has_plugin('tcomment')
     inoremap <C-\> <C-o>:TComment<cr>
 endif
 
+"挿入モードでもタブ移動
+"Ctrl-i Ctrl-n で次のタブ
+inoremap <C-i><C-n> <C-o>gt
+"Ctrl-i Ctrl-p で前のタブ
+inoremap <C-i><C-p> <C-o>gT
+"Ctrl-i 数字で N番目のタブに移動
+inoremap <C-i>1 <Esc>1gta
+inoremap <C-i>2 <Esc>2gta
+inoremap <C-i>3 <Esc>3gta
+inoremap <C-i>4 <Esc>4gta
+inoremap <C-i>5 <Esc>5gta
+inoremap <C-i>6 <Esc>6gta
+inoremap <C-i>7 <Esc>7gta
+inoremap <C-i>8 <Esc>8gta
+inoremap <C-i>9 <Esc>9gta
+
+
 "ビジュアルモード----
 "インデント追加・削除時後に選択範囲を再選択
 vnoremap > >gv
