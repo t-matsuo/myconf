@@ -197,7 +197,7 @@ set tabline=%!MyTabLine()
 " 1ページ下に移動
 nnoremap <C-b> <nop>
 " 1ページ上に移動
-inoremap <C-f> <nop>
+nnoremap <C-f> <nop>
 
 "アスタリスクでの検索時に次の単語に自動移動しない
 nnoremap * *N
