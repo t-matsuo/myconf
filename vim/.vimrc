@@ -196,6 +196,9 @@ set tabline=%!MyTabLine()
 "アスタリスクでの検索時に次の単語に自動移動しない
 nnoremap * *N
 
+" ファイラータブ起動
+nnoremap <C-q> :NERDTreeTabsToggle<cr>
+
 "x削除でyankしない
 nnoremap x "_x
 "d削除でyankしない

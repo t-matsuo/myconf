@@ -16,3 +16,9 @@
 [submodule "vim/.vim/plugins/vim-lsp-settings"]
 	path = vim/.vim/plugins/vim-lsp-settings
 	url = https://github.com/mattn/vim-lsp-settings.git
+[submodule "vim/.vim/plugins/vim-nerdtree-tabs"]
+	path = vim/.vim/plugins/vim-nerdtree-tabs
+	url = https://github.com/jistr/vim-nerdtree-tabs.git
+[submodule "vim/.vim/plugins/nerdtree"]
+	path = vim/.vim/plugins/nerdtree
+	url = https://github.com/preservim/nerdtree.git
