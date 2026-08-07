@@ -22,3 +22,7 @@
 [submodule "vim/.vim/plugins/nerdtree"]
 	path = vim/.vim/plugins/nerdtree
 	url = https://github.com/preservim/nerdtree.git
+[submodule "vim/.vim/plugins/vimdoc-ja"]
+	path = vim/.vim/plugins/vimdoc-ja
+	url = https://github.com/vim-jp/vimdoc-ja.git
+    shallow = true
