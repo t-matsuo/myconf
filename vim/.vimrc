@@ -239,31 +239,31 @@ nnoremap <C-b><C-p> :bprev<CR>
 nnoremap <C-b><C-l> :buffers<CR>:b<Space>
 
 "Ctrl-i Ctrl-c でタブ作成
-nnoremap <C-i><C-c> :tabnew<CR>
+nnoremap <C-e><C-c> :tabnew<CR>
 "Ctrl-i Ctrl-k でタブクローズ
-nnoremap <C-i><C-k> :tabclose<CR>
+nnoremap <C-e><C-k> :tabclose<CR>
 
 "gt で次のタブ (デフォルト動作)
 "Ctrl-i Ctrl-n で次のタブ
-nnoremap <C-i><C-n> gt
+nnoremap <C-e><C-n> gt
 
 "gT で前のタブ (デフォルト動作)
 "Ctrl-i Ctrl-p で前のタブ
-nnoremap <C-i><C-p> gT
+nnoremap <C-e><C-p> gT
 
 "Ctrl-i Ctrl-l でタブ一覧
-nnoremap <C-i><C-l> :tabs<CR>:tabnext<Space>
+nnoremap <C-e><C-l> :tabs<CR>:tabnext<Space>
 
 "Ctrl-i 数字で N番目のタブに移動
-nnoremap <C-i>1 1gt
-nnoremap <C-i>2 2gt
-nnoremap <C-i>3 3gt
-nnoremap <C-i>4 4gt
-nnoremap <C-i>5 5gt
-nnoremap <C-i>6 6gt
-nnoremap <C-i>7 7gt
-nnoremap <C-i>8 8gt
-nnoremap <C-i>9 9gt
+nnoremap <C-e>1 1gt
+nnoremap <C-e>2 2gt
+nnoremap <C-e>3 3gt
+nnoremap <C-e>4 4gt
+nnoremap <C-e>5 5gt
+nnoremap <C-e>6 6gt
+nnoremap <C-e>7 7gt
+nnoremap <C-e>8 8gt
+nnoremap <C-e>9 9gt
 
 ""挿入モード---------
 "Shift-Tabでインデント削除
@@ -276,19 +276,19 @@ endif
 
 "挿入モードでもタブ移動
 "Ctrl-i Ctrl-n で次のタブ
-inoremap <C-i><C-n> <C-o>gt
+inoremap <C-e><C-n> <C-o>gt
 "Ctrl-i Ctrl-p で前のタブ
-inoremap <C-i><C-p> <C-o>gT
+inoremap <C-e><C-p> <C-o>gT
 "Ctrl-i 数字で N番目のタブに移動
-inoremap <C-i>1 <Esc>1gta
-inoremap <C-i>2 <Esc>2gta
-inoremap <C-i>3 <Esc>3gta
-inoremap <C-i>4 <Esc>4gta
-inoremap <C-i>5 <Esc>5gta
-inoremap <C-i>6 <Esc>6gta
-inoremap <C-i>7 <Esc>7gta
-inoremap <C-i>8 <Esc>8gta
-inoremap <C-i>9 <Esc>9gta
+inoremap <C-e>1 <Esc>1gta
+inoremap <C-e>2 <Esc>2gta
+inoremap <C-e>3 <Esc>3gta
+inoremap <C-e>4 <Esc>4gta
+inoremap <C-e>5 <Esc>5gta
+inoremap <C-e>6 <Esc>6gta
+inoremap <C-e>7 <Esc>7gta
+inoremap <C-e>8 <Esc>8gta
+inoremap <C-e>9 <Esc>9gta
 
 
 "ビジュアルモード----
