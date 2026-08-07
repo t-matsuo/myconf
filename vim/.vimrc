@@ -209,7 +209,7 @@ nnoremap <C-f> <nop>
 nnoremap * *N
 
 " ファイラータブ起動
-nnoremap <C-q> :NERDTreeTabsToggle<cr>
+nnoremap <C-f> :NERDTreeTabsToggle<cr>
 
 "x削除でyankしない
 nnoremap x "_x
