@@ -240,6 +240,8 @@ nnoremap <C-b><C-l> :buffers<CR>:b<Space>
 
 "Ctrl-i Ctrl-c でタブ作成
 nnoremap <C-e><C-c> :tabnew<CR>
+"Ctrl-i c でタブ作成
+nnoremap <C-e>c :tabnew<CR>
 "Ctrl-i Ctrl-k でタブクローズ
 nnoremap <C-e><C-k> :tabclose<CR>
 
