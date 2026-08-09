@@ -34,3 +34,27 @@
 	path = vim/.vim/plugins/vimdoc-ja
 	url = https://github.com/vim-jp/vimdoc-ja.git
     shallow = true
+[submodule "vim/.vim/plugins/auto-pairs"]
+	path = vim/.vim/plugins/auto-pairs
+	url = https://github.com/jiangmiao/auto-pairs.git
+    shallow = true
+[submodule "vim/.vim/plugins/vim-fugitive"]
+	path = vim/.vim/plugins/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+    shallow = true
+[submodule "vim/.vim/plugins/vim-gitgutter"]
+	path = vim/.vim/plugins/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter.git
+    shallow = true
+[submodule "vim/.vim/plugins/vim-oscyank"]
+	path = vim/.vim/plugins/vim-oscyank
+	url = https://github.com/ojroques/vim-oscyank.git
+    shallow = true
+[submodule "vim/.vim/plugins/vim-airline"]
+	path = vim/.vim/plugins/vim-airline
+	url = https://github.com/vim-airline/vim-airline.git
+    shallow = true
+[submodule "vim/.vim/plugins/vim-airline-themes"]
+	path = vim/.vim/plugins/vim-airline-themes
+	url = https://github.com/vim-airline/vim-airline-themes.git
+    shallow = true

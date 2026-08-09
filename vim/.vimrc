@@ -47,32 +47,32 @@ if !Has_plugin('kaoriya')
   set term=xterm-256color
 endif
 
-"ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
-set laststatus=2
-"ファイル名表示
-set statusline=%F
-"変更チェック表示
-set statusline+=%m
-"読み込み専用かどうか表示
-set statusline+=%r
-"ヘルプページなら[HELP]と表示
-set statusline+=%h
-"プレビューウインドウなら[Prevew]と表示
-set statusline+=%w
-"ファイルエンコーディング
-set statusline+=\ [%{&fileencoding}]
-"ファイルフォーマット
-set statusline+=[%{&fileformat}]
-"ファイルタイプ
-set statusline+=[%{&filetype}]
-"カーソル下の文字コード
-set statusline+=\ [Code=%B]
-"これ以降は右寄せ表示
-set statusline+=%=
-"現在行数/全行数
-set statusline+=[行=%l/%L]
-"列数
-set statusline+=[列=%v]
+" "ステータスラインを常に表示(0:表示しない、1:2つ以上ウィンドウがある時だけ表示)
+" set laststatus=2
+" "ファイル名表示
+" set statusline=%F
+" "変更チェック表示
+" set statusline+=%m
+" "読み込み専用かどうか表示
+" set statusline+=%r
+" "ヘルプページなら[HELP]と表示
+" set statusline+=%h
+" "プレビューウインドウなら[Prevew]と表示
+" set statusline+=%w
+" "ファイルエンコーディング
+" set statusline+=\ [%{&fileencoding}]
+" "ファイルフォーマット
+" set statusline+=[%{&fileformat}]
+" "ファイルタイプ
+" set statusline+=[%{&filetype}]
+" "カーソル下の文字コード
+" set statusline+=\ [Code=%B]
+" "これ以降は右寄せ表示
+" set statusline+=%=
+" "現在行数/全行数
+" set statusline+=[行=%l/%L]
+" "列数
+" set statusline+=[列=%v]
 
 "クリップボード連携
 "set clipboard=unnamed,autoselect
@@ -108,8 +108,8 @@ set listchars=tab:»˗,trail:_,eol:↲,extends:»,precedes:«,nbsp:%
 "set cursorline
 "set cursorcolumn
 
-"デフォルトは行番号を表示させない
-set nonumber
+"デフォルトは行番号を表示
+set number
 
 "タブのインデントサイズ
 set tabstop=4
@@ -306,6 +306,27 @@ if Has_plugin('tcomment')
     vnoremap <C-\> :TCommentMaybeInline<cr>gv
 endif
 
+"プラグイン設定-------------------------------------------------------
+
+" vim-gitgutter
+set signcolumn=yes
+" デフォルトで有効化
+let g:gitgutter_enabled = 1
+" 差分行をハイライト無効化
+let g:gitgutter_highlight_lines = 0
+" 差分行の行番号を強調
+let g:gitgutter_highlight_linenrs = 1
+
+" vim-oscyank : tmux内でvimのyankをクリップボードにコピー
+" oscyankのキーマップをt+yに設定
+nmap ty  <Plug>OSCYankOperator
+nmap tyy <leader>c_
+vmap ty  <Plug>OSCYankVisual
+
+" Statusバー (airline) のテーマ
+" https://github.com/vim-airline/vim-airline/wiki/Screenshots
+let g:airline_theme='simple'
+
 "autocmd設定-------------------------------------------------------
 augroup myautocmd
     "autocmd二重定義回避のための設定
@@ -355,8 +376,8 @@ augroup myautocmd
     "autocmd BufNewFile,BufRead *.go  set tabstop=4
 
     "挿入モード時にステータスバーの色を変更
-    autocmd InsertEnter * hi StatusLine term=bold,reverse cterm=bold ctermfg=White ctermbg=Blue  guifg=#6666ff guibg=White    "挿入モード時の色
-    autocmd InsertLeave * hi StatusLine term=bold,reverse cterm=bold ctermfg=Black ctermbg=White guifg=#aaaaaa guibg=#222222 "通常モード時の色
+    " autocmd InsertEnter * hi StatusLine term=bold,reverse cterm=bold ctermfg=White ctermbg=Blue  guifg=#6666ff guibg=White    "挿入モード時の色
+    " autocmd InsertLeave * hi StatusLine term=bold,reverse cterm=bold ctermfg=Black ctermbg=White guifg=#aaaaaa guibg=#222222 "通常モード時の色
 
     "vimスクリプトのファイルはコマンドのファイルの高さを広げる
     autocmd FileType vim set cmdheight=3
@@ -412,3 +433,28 @@ if !Has_plugin('kaoriya')
     endif
     set fileformats=unix,dos,mac
 endif
+
+" Ctrl-u Ctrl-d スクロールスムーズ化 --------------------------
+let s:stop_time = 10
+function! s:down(timer) abort
+  execute "normal! 4\<C-e>4j"
+endfunction
+function! s:up(timer) abort
+  execute "normal! 4\<C-y>4k"
+endfunction
+function! s:smooth_scroll(fn) abort
+  let working_timer = get(s:, 'smooth_scroll_timer', 0)
+  if !empty(timer_info(working_timer))
+    call timer_stop(working_timer)
+  endif
+  if (a:fn ==# 'down' && line('$') == line('w$')) ||
+        \ (a:fn ==# 'up' && line('w0') == 1)
+    return
+  endif
+  let s:smooth_scroll_timer = timer_start(s:stop_time, function('s:' . a:fn), {'repeat' : &scroll/4})
+endfunction
+nnoremap <silent> <C-u> <cmd>call <SID>smooth_scroll('up')<CR>
+nnoremap <silent> <C-d> <cmd>call <SID>smooth_scroll('down')<CR>
+vnoremap <silent> <C-u> <cmd>call <SID>smooth_scroll('up')<CR>
+vnoremap <silent> <C-d> <cmd>call <SID>smooth_scroll('down')<CR>
+
