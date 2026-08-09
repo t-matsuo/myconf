@@ -458,6 +458,20 @@ nnoremap <silent> <C-d> <cmd>call <SID>smooth_scroll('down')<CR>
 vnoremap <silent> <C-u> <cmd>call <SID>smooth_scroll('up')<CR>
 vnoremap <silent> <C-d> <cmd>call <SID>smooth_scroll('down')<CR>
 
-" jqコマンドでjsonを整形 --------------------------------------
-command! JqFormat %!jq '.'
+" JqFormatコマンドでjsonを整形 --------------------------------------
+function! JqFormat()
+    " 元の内容を保存
+    let l:original = getline(1, '$')
+    " jqを実行
+    %!jq '.'
+    " エラーが発生した場合
+    if v:shell_error != 0
+        call input('jq failed: Press Enter to continue.')
+        " バッファの全行を削除
+        %delete _
+        " 元の内容を復元
+        call setline(1, l:original)
+    endif
+endfunction
+command! JqFormat call JqFormat()
 
