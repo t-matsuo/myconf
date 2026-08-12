@@ -453,10 +453,11 @@ function! s:smooth_scroll(fn) abort
   endif
   let s:smooth_scroll_timer = timer_start(s:stop_time, function('s:' . a:fn), {'repeat' : &scroll/4})
 endfunction
-nnoremap <silent> <C-u> <cmd>call <SID>smooth_scroll('up')<CR>
-nnoremap <silent> <C-d> <cmd>call <SID>smooth_scroll('down')<CR>
-vnoremap <silent> <C-u> <cmd>call <SID>smooth_scroll('up')<CR>
-vnoremap <silent> <C-d> <cmd>call <SID>smooth_scroll('down')<CR>
+nnoremap <C-u> :call <SID>smooth_scroll('up')<cr>
+nnoremap <C-d> :call <SID>smooth_scroll('down')<cr>
+vnoremap <C-u> <cmd>call <SID>smooth_scroll('up')<cr>
+vnoremap <C-d> <cmd>call <SID>smooth_scroll('down')<cr>
+
 
 " JqFormatコマンドでjsonを整形 --------------------------------------
 function! JqFormat()
