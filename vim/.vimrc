@@ -327,6 +327,10 @@ vmap ty  <Plug>OSCYankVisual
 " https://github.com/vim-airline/vim-airline/wiki/Screenshots
 let g:airline_theme='simple'
 
+" NERDTree
+" dotファイルを表示
+let NERDTreeShowHidden=1
+
 "autocmd設定-------------------------------------------------------
 augroup myautocmd
     "autocmd二重定義回避のための設定
